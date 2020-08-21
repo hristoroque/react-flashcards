@@ -1,25 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import Card from './Components/Card/Card'
+import './App.css'
+import DBCONFIG from './Config/Firebase/dbconfig'
+import firebase from 'firebase/app'
+import 'firebase/database'
 
 function App() {
+
+  const [flashcards,setFlashCards] = useState([])
+  const [currentFlashCard, setCurrentFlashCard] = useState(null)
+  const [app,setApp] = useState(null)
+  const [database,setDatabase] = useState(null)
+
+  useEffect(()=>{
+    const app = firebase.initializeApp(DBCONFIG)
+    setApp(app)
+    const database = app.database().ref().child('cards')
+    setDatabase(database)
+    console.log(database)
+  },[])
+
+  useEffect(()=>{
+    if(database !== null) {
+      const currentFlashCards = []
+      
+      database.on('child_added', snap => {
+        currentFlashCards.push({
+          id: snap.key,
+          front: snap.val().front,
+          back: snap.val().back,
+        })
+      })
+      setFlashCards(currentFlashCards)
+      setCurrentFlashCard(currentFlashCards[0])
+    }
+  },[database, flashcards])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        Fash Cards
+      </div>
+      {
+        currentFlashCard ? 
+        <div>
+          { <Card front={currentFlashCard.front} back={currentFlashCard.back} /> }
+        </div>
+        :
+        <p> Cargando... </p>
+      }
+    </>
   );
 }
 

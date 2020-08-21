@@ -1,0 +1,51 @@
+.card-container{
+    margin-top: 100px;
+    perspective: 800px;
+    width: 300px;
+    height: 200px;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease-in;
+}
+
+.card-container:hover .card{
+    transform: rotateY(180deg);
+    animation-name: jump;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    50%{
+        bottom: 10px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.card>.front, .card>.back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #fff1d6;
+    display: grid;
+    place-items: center;
+}
+
+.card>.back{
+    transform: rotateY(180deg);
+}
