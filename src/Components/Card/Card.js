@@ -7,19 +7,13 @@ Card.propTypes = {
     back: PropTypes.string.isRequired,
 }
 
-function Card({front, back}){
-
-    let number = Array(10)
-
+function Card({front, back, hidden = true}){
     return (
         <div>
-            {
-                number.map(_=>(
-                <div className="others"></div>)
-                )
-            }
             <div className="card-container">
-                <div className="card">
+                <div className="card"
+                    style={hidden ? {} : {transform: "rotateY(180deg)"}}
+                >
                     <div className="front">
                         {front}
                     </div>

@@ -1,8 +1,14 @@
 .card-container{
-    margin-top: 100px;
-    perspective: 800px;
-    width: 300px;
-    height: 200px;
+    perspective: 1000px;
+    width: 80vw;
+    height: 48vw;
+    max-width: 500px;
+    max-height: 300px;
+    margin: 20px;
+}
+
+.card-bg{
+    top: 10px;
 }
 
 .card{
@@ -14,34 +20,13 @@
     transition: all 0.3s ease-in;
 }
 
-.card-container:hover .card{
-    transform: rotateY(180deg);
-    animation-name: jump;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-}
-
-@keyframes jump {
-    0% {
-        bottom: 0;
-    }
-
-    50%{
-        bottom: 10px;
-    }
-
-    100% {
-        bottom: 0;
-    }
-}
-
 .card>.front, .card>.back{
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    background-color: #fff1d6;
+    background-color: #EAD7D1;
+    border: 2px dashed black;
     display: grid;
     place-items: center;
 }
