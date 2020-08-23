@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Card from './Card'
 import ProgressBar from './ProgressBar'
 import './CardDetail.css'
-import Button from '../Button/Button'
+import Button from '../button/Button'
 
 function CardDetail(){
     const [hidden,setHidden] = useState(false)

@@ -1,5 +1,5 @@
 import React,{useState, useContext} from 'react'
-import {ThemeContext} from '../Theme/Theme'
+import {ThemeContext} from '../theme/Theme'
 import './Button.css'
 
 function Button({title, action}){

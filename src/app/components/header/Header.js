@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import {ThemeContext} from '../Theme/Theme'
+import {ThemeContext} from '../theme/Theme'
 import './Header.css'
 
 function Header(){
