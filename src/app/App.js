@@ -1,23 +1,44 @@
-import React,{Fragment} from 'react'
+import React,{Fragment,useEffect} from 'react'
 import {connect} from 'react-redux'
 import Header from './components/header/Header'
 import CardDetail from './components/card/CardDetail'
+import DBCONFIG from '../config/firebase/dbconfig'
+import {setApp, setFlashCards, nextCard} from './redux/actions/cardActions'
 
 function App(props) {
+
+  const setApp = props.setApp
+  const setFlashCards = props.setFlashCards
+  const database = props.database
+  const currentFlashCard = props.currentFlashCard
+  const nextCard = props.nextCard
+
+  useEffect(()=>{
+    setApp(DBCONFIG)
+  },[setApp])
+
+  useEffect(()=>{
+    setFlashCards(database)
+  },[database, setFlashCards])
+
   return (
     <Fragment>
       <Header/>
-      <CardDetail/>
+      <CardDetail currentFlashCard={currentFlashCard}/>
     </Fragment>
   );
 }
 
 const mapStateToProps = (state)=>({
-  name: state.name
+  flashCards: state.flashCards,
+  database: state.database,
+  currentFlashCard: state.currentFlashCard,
 })
 
 const mapDispatchToProps = (dispatch)=>({
-  setName: (name)=>dispatch({type: "PRUEBA", payload: name})
+  setApp: (config)=>dispatch(setApp(config)),
+  setFlashCards: (database)=>dispatch(setFlashCards(database)),
+  nextCard: ()=>dispatch(nextCard())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

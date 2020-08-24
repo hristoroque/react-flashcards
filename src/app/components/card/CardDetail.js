@@ -4,16 +4,18 @@ import ProgressBar from './ProgressBar'
 import './CardDetail.css'
 import Button from '../button/Button'
 
-function CardDetail(){
+function CardDetail({flashCards, currentFlashCard}){
     const [hidden,setHidden] = useState(false)
 
     return (
         <main className="main-content">
-            <Card 
-                front="Card Question Placeholder"
-                back="Card Answer Placeholder"
-                hidden={hidden}
-            />
+            { currentFlashCard &&
+                <Card 
+                    front={currentFlashCard.front}
+                    back={currentFlashCard.back}
+                    hidden={hidden}
+                />
+            }
             <ProgressBar 
                 current={10}
                 total={20}

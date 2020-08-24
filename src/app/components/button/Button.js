@@ -12,6 +12,8 @@ function Button({title, action}){
             onClick={action} 
             onMouseEnter={()=>setStyle(theme.primaryHover)}
             onMouseLeave={()=>setStyle(theme.primary)}
+            onMouseDown={()=>setStyle(theme.primaryActive)}
+            onMouseUp={()=>setStyle(theme.primaryHover)}
             style={style}>
             {title}
         </button>

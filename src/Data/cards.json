@@ -1,0 +1,16 @@
+{
+    "cards": [
+        {
+            "front": "What is firebase?",
+            "back": ""
+        },
+        {
+            "front": "What does the css 'backface-visibility' property do?",
+            "back": ""
+        },
+        {
+            "front": "What does the css 'perspective' property do?",
+            "back": ""
+        }
+    ]
+}

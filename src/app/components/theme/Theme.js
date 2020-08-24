@@ -1,6 +1,6 @@
 import React,{createContext} from 'react'
 
-const primaryColor = '#1F1A38';
+//const primaryColor = '#1F1A38';
 
 const theme = {
     dark: {
@@ -10,6 +10,10 @@ const theme = {
         },
         primaryHover: {
             backgroundColor: '#7B506F',
+            color: 'white',
+        },
+        primaryActive: {
+            backgroundColor: '#DD99BB',
             color: 'white',
         }
     }

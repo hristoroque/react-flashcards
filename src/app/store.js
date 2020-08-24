@@ -1,17 +1,15 @@
-import {createStore} from 'redux'
-
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
+import cardsReducers from './redux/reducers/cardsReducers'
 
 const initialState = {
-    name: "Hristo Roque"
+    app: null,
+    database: null,
+    flashCards: [],
+    currentFlashCard: null,
+    currentFlashCardIndex: 0,
+    currentMarkedCards: 0,
+    totalCards: 0,
 }
 
-function reducer(state = initialState, action){
-    switch(action.type){
-        case "PRUEBA":
-            return {...state, name: action.payload}
-        default:
-            return state
-    }
-}
-
-export default createStore(reducer)
+export default createStore(cardsReducers, initialState, applyMiddleware(thunk))

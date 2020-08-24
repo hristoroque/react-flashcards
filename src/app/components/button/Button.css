@@ -4,5 +4,6 @@
     font-size: 1.2em;
     padding: 0.4em;
     min-width: 140px;
-    transition: 0.1s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0 10px 15px -15px black;
 }
