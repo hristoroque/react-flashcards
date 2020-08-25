@@ -13,10 +13,16 @@ export default (state, action)=>{
             const flashCards = action.payload
             newState.flashCards = flashCards
             newState.currentFlashCard = flashCards[newState.currentFlashCardIndex]
+            newState.totalCards = flashCards.length
             return newState
         case TYPES.NEXT_FLASHCARD:
+            newState.currentCardIsHidden = true
             newState.currentFlashCardIndex += 1
-            newState.currentFlashCard = newState.flashCards[newState.currentFlashCardIndex % newState.flashCards.length]
+            newState.currentFlashCardIndex %= newState.flashCards.length
+            newState.currentFlashCard = newState.flashCards[newState.currentFlashCardIndex]
+            return newState
+        case TYPES.SHOW_CURRENT_CARD:
+            newState.currentCardIsHidden = false
             return newState
         default:
             return state

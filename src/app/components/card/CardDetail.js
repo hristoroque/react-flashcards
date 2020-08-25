@@ -1,31 +1,53 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Card from './Card'
 import ProgressBar from './ProgressBar'
 import './CardDetail.css'
 import Button from '../button/Button'
+import {showCurrentCard} from '../../redux/actions/cardActions'
+import {connect} from 'react-redux'
 
-function CardDetail({flashCards, currentFlashCard}){
-    const [hidden,setHidden] = useState(false)
-
+function CardDetail({
+    currentFlashCard,
+    progress,
+    totalCards,
+    nextCard,
+    hidden,
+    showCard
+}){
     return (
         <main className="main-content">
             { currentFlashCard &&
-                <Card 
-                    front={currentFlashCard.front}
-                    back={currentFlashCard.back}
-                    hidden={hidden}
-                />
+                <div className="deck">
+                    <div className="other-card-2"></div>
+                    <div className="other-card"></div>
+                    <Card 
+                        front={currentFlashCard.front}
+                        back={currentFlashCard.back}
+                        hidden={hidden}
+                    />
+                </div>
             }
             <ProgressBar 
-                current={10}
-                total={20}
+                current={progress}
+                total={totalCards}
             />
-            <Button
-            title="Mostrar"
-            action={()=>setHidden(!hidden)}
-            />
+            {
+                hidden?
+                <Button
+                    title="Mostrar"
+                    action={showCard}
+                /> :
+                <Button
+                    title="Marcar"
+                    action={nextCard}
+                />
+            }
         </main>
     )
 }
 
-export default CardDetail
+const mapDispatchToProps = (dispatch)=>({
+    showCard: ()=>dispatch(showCurrentCard())
+})
+
+export default connect(null, mapDispatchToProps)(CardDetail)

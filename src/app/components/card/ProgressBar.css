@@ -10,6 +10,7 @@
     background-color: #7B506F;
     position: absolute;
     height: 100%;
+    transition: width 1s ease-in-out;
 }
 
 .status{

@@ -8,7 +8,7 @@ const initialState = {
     flashCards: [],
     currentFlashCard: null,
     currentFlashCardIndex: 0,
-    currentMarkedCards: 0,
+    currentCardIsHidden: true,
     totalCards: 0,
 }
 

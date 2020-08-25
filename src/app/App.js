@@ -24,7 +24,13 @@ function App(props) {
   return (
     <Fragment>
       <Header/>
-      <CardDetail currentFlashCard={currentFlashCard}/>
+      <CardDetail 
+      currentFlashCard={currentFlashCard}
+      progress={props.progress}
+      totalCards={props.total}
+      nextCard={nextCard}
+      hidden={props.hidden}
+      />
     </Fragment>
   );
 }
@@ -33,6 +39,9 @@ const mapStateToProps = (state)=>({
   flashCards: state.flashCards,
   database: state.database,
   currentFlashCard: state.currentFlashCard,
+  progress: state.currentFlashCardIndex,
+  total: state.totalCards,
+  hidden: state.currentCardIsHidden,
 })
 
 const mapDispatchToProps = (dispatch)=>({

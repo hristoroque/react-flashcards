@@ -18,5 +18,9 @@ const nextCard = ()=>({
     type: TYPES.NEXT_FLASHCARD,
 })
 
-export {setApp, setFlashCards, nextCard}
+const showCurrentCard = ()=>({
+    type: TYPES.SHOW_CURRENT_CARD,
+})
+
+export {setApp, setFlashCards, nextCard, showCurrentCard}
 

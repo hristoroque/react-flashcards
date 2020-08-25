@@ -3,3 +3,33 @@
     flex-flow: column nowrap;
     align-items: center;
 }
+
+.deck {
+    margin-top: 2em;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.other-card, .other-card-2{
+    position: absolute;
+    width: 80vw;
+    height: 48vw;
+    max-height: 300px;
+    background-color: #EAD7D1;
+    border: 7px dashed black;
+    font-size: 1.5em;
+    
+}
+
+.other-card {
+    max-width: 450px;
+    top: 5px;
+    filter: brightness(80%);
+}
+
+.other-card-2 {
+    max-width: 400px;
+    top: -10px;
+    filter: brightness(70%);
+}

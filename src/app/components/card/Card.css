@@ -31,6 +31,7 @@
     font-size: 1.5em;
     display: grid;
     place-items: center;
+    padding: 1em;
 }
 
 .card>.back{
