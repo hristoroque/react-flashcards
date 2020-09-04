@@ -14,7 +14,6 @@ function Card({card, cardStyle, hidden, cardState}) {
     const back = card.back
 
     let className = 'card'
-
     if(cardState === 'REMOVING_CARD'){
         className += ' removing-card'
     }

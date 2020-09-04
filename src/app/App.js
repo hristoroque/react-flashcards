@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useState, useEffect} from 'react'
 //import {connect} from 'react-redux'
 import Header from './components/header'
 import CardsGamePanel from './components/cardsgamepanel'
@@ -16,7 +16,7 @@ const cards = [
   },
   {
     'front': 'Pregunta 2',
-    'back': 'Respuesta 2',
+    'back': 'IHRFBDNDFSAKLFDJSALÑFJSDALÑFJDSALJFDSLAJFDSLÑAJFDSLAÑLFDJAÑLDAKJFDSLAKJFDSALÑFJDAÑLDJKFÑALSKFJ',
   },
   {
     'front': 'Pregunta 3',
@@ -52,10 +52,14 @@ function App() {
   const easy = ()=>{
     setCardState(states.REMOVING_CARD)
     setTimeout(()=>{
-      setCurrentCards(currentCards.slice(1))
       setCardState(states.NEW_CARD)
     },1000)
   }
+
+  useEffect(()=>{
+    if(cardState === states.NEW_CARD)
+      setCurrentCards(currentCards.slice(1))
+  },[cardState])
 
   const hard = ()=>{
     const newCards = [...currentCards]
@@ -68,6 +72,9 @@ function App() {
   return (
     <Fragment>
       <Header/>
+      <p>
+        Estado actual: {cardState}
+      </p>
       <CardsGamePanel>
         <StackOfCards currentCards={currentCards} cardState={cardState}/>
         <ButtonPanel 

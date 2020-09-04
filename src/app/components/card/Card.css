@@ -23,8 +23,11 @@
     background-color: #EAD7D1;
     font-size: 1.5em;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    word-wrap: anywhere;
 }
 
 .back{

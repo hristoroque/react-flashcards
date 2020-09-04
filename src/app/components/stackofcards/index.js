@@ -21,7 +21,7 @@ function StackOfCards({currentCards, cardState}){
                             filter: `brightness(${(numberOfCards-index*0.2)/numberOfCards})`,
                         }}
                         cardState={index===0 ? cardState : null}
-                        hidden={cardState !== 'NEW_CARD' && index==0 ? true : false}
+                        hidden={(cardState === 'SHOWN_CARD' || cardState === 'REMOVING_CARD') && index==0 ? true : false}
                         style={numberOfCards-index}
                         width={450-index*factor}
                     />
