@@ -1,20 +1,19 @@
-import React from 'react'
-import './ProgressBar.css'
+import React, { Fragment } from 'react'
+import './progressbar.css'
 
-function ProgressBar({current, total}){
+function ProgressBar(){
     return (
-        <>
+        <Fragment>
             <p className="status">
-                {current}/{total} Completed
+                ## Completed
             </p>
             <div className="progress-bar">
                 <div 
                 className="current-progress"
-                style={{width: `${100*(current/total)}%`}}
                 >
                 </div>
             </div>
-        </>
+        </Fragment>
     )
 }
 

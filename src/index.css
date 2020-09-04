@@ -5,3 +5,18 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
+
+.stack{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.stack > * {
+    margin-top: -290px;
+}
+
+.stack > div:last-child {
+    margin-top: 0;
+}
