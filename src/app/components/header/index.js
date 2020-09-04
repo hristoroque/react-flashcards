@@ -3,9 +3,7 @@ import './Header.css'
 
 function Header(){
     return (
-        <header 
-            className="header"
-        >
+        <header className="header">
             <h1>Flashcards App</h1>
         </header>
     )

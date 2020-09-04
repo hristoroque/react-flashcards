@@ -1,0 +1,15 @@
+.stack{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.stack > * {
+    margin-top: -290px;
+}
+
+.stack > div:last-child {
+    margin-top: 0;
+}

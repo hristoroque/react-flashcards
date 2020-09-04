@@ -3,6 +3,7 @@
     height: 300px;
     background-color: transparent;
     perspective: 4000px;
+    transition: width 10s;
 }
 
 .card {
@@ -11,6 +12,7 @@
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.4s ease-in-out;
+    box-shadow: 0 10px 10px -10px black;
 }
 
 .front, .back {
@@ -19,22 +21,49 @@
     height: 100%;
     backface-visibility: hidden;
     background-color: #EAD7D1;
-    border: 7px dashed black;
     font-size: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.card-container:hover .card {
-    transform: rotateY(180deg);
-}
-
-.front{
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
 .back{
     transform: rotateY(180deg);
+}
+
+.removing-card *{
+    animation-name: removing;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.removing-card {
+    animation-name: removing-card;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes removing {
+    0% {
+        color: black;
+        background-color: #EAD7D1;
+        opacity: 1;
+        
+    }
+    100% {
+        color: white;
+        background-color: #fff9f7;
+        opacity: 0;
+    }
+}
+
+@keyframes removing-card{
+    0% {
+        box-shadow: 0 10px 10px -10px black;
+    }
+    100% {
+        box-shadow: none;
+    }
 }

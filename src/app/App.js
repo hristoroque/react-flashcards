@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from 'react'
 //import {connect} from 'react-redux'
 import Header from './components/header'
+import CardsGamePanel from './components/cardsgamepanel'
 import StackOfCards from './components/stackofcards'
 import ButtonPanel from './components/buttonpanel'
 import ProgressBar from './components/progressbar'
@@ -34,6 +35,8 @@ const cards = [
 const states = {
   NEW_CARD: 'NEW_CARD',
   SHOWN_CARD: 'SHOWN_CARD',
+  REMOVING_CARD: 'REMOVING_CARD',
+  WON: 'WON',
 }
 
 function App() {
@@ -47,8 +50,11 @@ function App() {
   }
 
   const easy = ()=>{
-    setCurrentCards(currentCards.slice(1))
-    setCardState(states.NEW_CARD)
+    setCardState(states.REMOVING_CARD)
+    setTimeout(()=>{
+      setCurrentCards(currentCards.slice(1))
+      setCardState(states.NEW_CARD)
+    },1000)
   }
 
   const hard = ()=>{
@@ -62,15 +68,20 @@ function App() {
   return (
     <Fragment>
       <Header/>
-      <StackOfCards currentCards={currentCards}/>
-      <ButtonPanel 
-        state={cardState} 
-        states={states}
-        showCard={showCard}
-        easy={easy}
-        hard={hard}
+      <CardsGamePanel>
+        <StackOfCards currentCards={currentCards} cardState={cardState}/>
+        <ButtonPanel 
+          state={cardState} 
+          states={states}
+          showCard={showCard}
+          easy={easy}
+          hard={hard}
+          />
+        <ProgressBar
+          total={totalCards.length}
+          remaining={currentCards.length}
         />
-      <ProgressBar/>
+      </CardsGamePanel>
     </Fragment>
   )
 }

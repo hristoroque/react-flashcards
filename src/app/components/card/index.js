@@ -8,18 +8,25 @@ Card.propTypes = {
     back: PropTypes.string.isRequired,
 }
 
-function Card({card, cardStyle}) {
+function Card({card, cardStyle, hidden, cardState}) {
 
     const front = card.front
     const back = card.back
-    const hidden = false
+
+    let className = 'card'
+
+    if(cardState === 'REMOVING_CARD'){
+        className += ' removing-card'
+    }
 
     return (
         <div 
             className="card-container" 
             style={cardStyle}
         >
-            <div className="card">
+            <div className={className}
+                style={hidden ? {transform: 'rotateY(180deg)'} : {}}
+            >
                 <div className="front">
                     {front}
                 </div>

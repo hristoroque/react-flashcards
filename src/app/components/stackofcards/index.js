@@ -1,11 +1,12 @@
 import React from 'react'
 
-import Card from '../components/card'
+import Card from './../card'
+import './stackofcards.css'
 
-function StackOfCards({currentCards}){
+function StackOfCards({currentCards, cardState}){
 
     const numberOfCards = currentCards.length
-    const factor = 20
+    const factor = 10
 
     return (
         <div className="stack">
@@ -17,8 +18,10 @@ function StackOfCards({currentCards}){
                         cardStyle={{
                             zIndex: numberOfCards-index,
                             width: 450-index*factor,
-                            filter: `brightness(${(numberOfCards-index)/numberOfCards})`,
-                        }} 
+                            filter: `brightness(${(numberOfCards-index*0.2)/numberOfCards})`,
+                        }}
+                        cardState={index===0 ? cardState : null}
+                        hidden={cardState !== 'NEW_CARD' && index==0 ? true : false}
                         style={numberOfCards-index}
                         width={450-index*factor}
                     />

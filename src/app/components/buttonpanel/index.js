@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Button from '../components/button'
+import Button from '../button'
+import './buttonpanel.css'
 
 function ButtonPanel({
     state,
@@ -9,23 +10,30 @@ function ButtonPanel({
     easy,
     hard,
 }){
+    let buttons
     switch(state){
         case states.NEW_CARD:
-            return (
-                <div>
-                    <Button title="Show Card" action={showCard}/>
-                </div>
+            buttons = (
+                <Button title="Show Card" action={showCard}/>
             )
+            break
         case states.SHOWN_CARD:
-            return (
+            buttons = (
                 <div>
                     <Button title="Easy" action={easy}/>
                     <Button title="Impossible" action={hard}/>
                 </div>
             )
+            break
         default:
-            return <div>Something went wrong</div>
+            buttons = <div>Something went wrong</div>
     }
+
+    return (
+        <div className="buttonpanel">
+            {buttons}
+        </div>
+    )
 }
 
 export default ButtonPanel

@@ -1,0 +1,21 @@
+.button {
+    padding: 0.5em;
+    width: 8em;
+    font-size: 1.2rem;
+    margin: 0.2em;
+    border: none;
+    outline: none;
+
+    box-shadow: 0 5px 5px -5px black;
+    transition: background-color 0.2s ease-in-out;
+    background-color: #1F1A38;
+    color: white;
+}
+
+.button:hover {
+    background-color: #7B506F;
+}
+
+.button:active{
+    background-color: #DD99BB;
+}

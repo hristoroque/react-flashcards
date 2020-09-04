@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './button.css'
+
 function Button({title, action}){
     return (
         <button 
