@@ -11,22 +11,27 @@ import ProgressBar from './components/progressbar'
 
 const cards = [
   {
+    id: 1,
     'front': 'Pregunta 1',
     'back': 'Respuesta 1'
   },
   {
+    id: 2,
     'front': 'Pregunta 2',
     'back': 'IHRFBDNDFSAKLFDJSALÑFJSDALÑFJDSALJFDSLAJFDSLÑAJFDSLAÑLFDJAÑLDAKJFDSLAKJFDSALÑFJDAÑLDJKFÑALSKFJ',
   },
   {
+    id: 3,
     'front': 'Pregunta 3',
     'back': 'Respuesta 3',
   },
   {
+    id: 4,
     'front': 'Pregutna 4',
     'back': 'Respuesta 4'
   },
   {
+    id: 5,
     'front': 'Pregunta 5',
     'back': 'Respuesta 5',
   }
@@ -53,13 +58,9 @@ function App() {
     setCardState(states.REMOVING_CARD)
     setTimeout(()=>{
       setCardState(states.NEW_CARD)
+      setCurrentCards(currentCards.slice(1))
     },1000)
   }
-
-  useEffect(()=>{
-    if(cardState === states.NEW_CARD)
-      setCurrentCards(currentCards.slice(1))
-  },[cardState])
 
   const hard = ()=>{
     const newCards = [...currentCards]
