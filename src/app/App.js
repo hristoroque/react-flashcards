@@ -76,7 +76,6 @@ function App() {
   return (
     <Fragment>
       <Header/>
-      {cardState}
       <CardsGamePanel>
         <StackOfCards currentCards={currentCards} cardState={cardState}/>
         <ButtonPanel 
