@@ -12,28 +12,28 @@ import ProgressBar from './components/progressbar'
 const cards = [
   {
     id: 1,
-    'front': 'Pregunta 1',
-    'back': 'Respuesta 1'
+    'front': 'What is React?',
+    'back': 'It\'s a javascript library that you make ui interfaces with'
   },
   {
     id: 2,
-    'front': 'Pregunta 2',
-    'back': 'IHRFBDNDFSAKLFDJSALÑFJSDALÑFJDSALJFDSLAJFDSLÑAJFDSLAÑLFDJAÑLDAKJFDSLAKJFDSALÑFJDAÑLDJKFÑALSKFJ',
+    'front': 'What does the css backface-visibility do?',
+    'back': 'It defines whether or not the back face of the element will be visible when facing the user',
   },
   {
     id: 3,
-    'front': 'Pregunta 3',
-    'back': 'Respuesta 3',
+    'front': 'What is firebase?',
+    'back': 'Is a platform provided by google that helps you create mobile or web apps by giving you services like databases',
   },
   {
     id: 4,
-    'front': 'Pregutna 4',
-    'back': 'Respuesta 4'
+    'front': 'What is redux?',
+    'back': 'It\'s a state management framework'
   },
   {
     id: 5,
-    'front': 'Pregunta 5',
-    'back': 'Respuesta 5',
+    'front': 'What does the key property do in react components',
+    'back': 'It assigns an identifier so that react knows the elements that have changed in a mapped array',
   }
 ]
 
@@ -55,8 +55,14 @@ function App() {
   }
 
   const easy = ()=>{
-    setCardState(states.NEW_CARD)
-    setCurrentCards(currentCards.slice(1))
+    const remainingCards = currentCards.slice(1)
+    setCurrentCards(remainingCards)
+    if(remainingCards.length > 0){
+      setCardState(states.NEW_CARD)
+    }
+    else{
+      setCardState(states.WON)
+    }
   }
 
   const hard = ()=>{
@@ -70,9 +76,7 @@ function App() {
   return (
     <Fragment>
       <Header/>
-      <p>
-        Estado actual: {cardState}
-      </p>
+      {cardState}
       <CardsGamePanel>
         <StackOfCards currentCards={currentCards} cardState={cardState}/>
         <ButtonPanel 

@@ -20,10 +20,13 @@ function ButtonPanel({
         case states.SHOWN_CARD:
             buttons = (
                 <div>
-                    <Button title="Easy" action={easy}/>
-                    <Button title="Impossible" action={hard}/>
+                    <Button title="Done" action={easy}/>
+                    <Button title="Not Done" action={hard}/>
                 </div>
             )
+            break
+        case state.WON:
+            buttons = 'You won, for the moment, you\'ll have to reload the page'
             break
         default:
             buttons = <div>Something went wrong</div>
