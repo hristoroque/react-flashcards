@@ -23,7 +23,7 @@ const cards = [
   {
     id: 3,
     'front': 'What is firebase?',
-    'back': 'Is a platform provided by google that helps you create mobile or web apps by giving you services like databases',
+    'back': 'It\'s a platform provided by google that helps you create mobile or web apps by giving you services like databases',
   },
   {
     id: 4,

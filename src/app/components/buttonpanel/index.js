@@ -25,7 +25,8 @@ function ButtonPanel({
                 </div>
             )
             break
-        case state.WON:
+        case states.WON:
+            console.log("You f won")
             buttons = 'You won, for the moment, you\'ll have to reload the page'
             break
         default:
