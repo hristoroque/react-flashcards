@@ -9,6 +9,8 @@ function StackOfCards({currentCards, cardState}){
     const factor = 10
 
     return (
+    <>
+    { currentCards.length !== 0 ?
         <div className="stack">
             {
                 currentCards.map((card, index) => (
@@ -28,6 +30,12 @@ function StackOfCards({currentCards, cardState}){
                 ))
             }
         </div>
+        :
+        <div className="stack">
+            Yep, you did it.
+        </div>
+        }
+        </>
     )
 }
 

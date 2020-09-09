@@ -55,11 +55,8 @@ function App() {
   }
 
   const easy = ()=>{
-    setCardState(states.REMOVING_CARD)
-    setTimeout(()=>{
-      setCardState(states.NEW_CARD)
-      setCurrentCards(currentCards.slice(1))
-    },1000)
+    setCardState(states.NEW_CARD)
+    setCurrentCards(currentCards.slice(1))
   }
 
   const hard = ()=>{

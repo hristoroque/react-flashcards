@@ -3,7 +3,6 @@
     height: 300px;
     background-color: transparent;
     perspective: 4000px;
-    transition: width 10s;
 }
 
 .card {
@@ -34,39 +33,24 @@
     transform: rotateY(180deg);
 }
 
-.removing-card *{
-    animation-name: removing;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
+.test-enter {
+    opacity: 1;
 }
 
-.removing-card {
-    animation-name: removing-card;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
+.test-enter-active{
+    opacity: 1;
+    transition: opacity 100ms ease-in-out;
 }
 
-@keyframes removing {
-    0% {
-        color: black;
-        background-color: #EAD7D1;
-        opacity: 1;
-        
-    }
-    100% {
-        color: white;
-        background-color: #fff9f7;
-        opacity: 0;
-    }
+.test-exit{
+    opacity: 0;
 }
 
-@keyframes removing-card{
-    0% {
-        box-shadow: 0 10px 10px -10px black;
-    }
-    100% {
-        box-shadow: none;
-    }
+.test-exit-active{
+    opacity: 0;
+    transition: opacity 100ms ease-in-out;
+}
+
+.test-enter-done {
+    opacity: 0;
 }
