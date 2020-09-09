@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import './card.css'
 
@@ -8,8 +8,6 @@ Card.propTypes = {
 }
 
 function Card({ card, cardStyle, hidden, cardState }) {
-
-    const [active, setActive] = useState(true)
     const front = card.front
     const back = card.back
 

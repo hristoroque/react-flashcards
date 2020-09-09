@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {Fragment, useState} from 'react'
 //import {connect} from 'react-redux'
 import Header from './components/header'
 import CardsGamePanel from './components/cardsgamepanel'
@@ -47,7 +47,7 @@ const states = {
 function App() {
 
   const [currentCards, setCurrentCards] = useState([...cards])
-  const [totalCards, setTotalCards] = useState([...cards])
+  const [totalCards] = useState([...cards])
   const [cardState, setCardState] = useState(states.NEW_CARD)
 
   const showCard = ()=>{
